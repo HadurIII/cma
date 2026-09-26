@@ -4,8 +4,7 @@ const ASSETS = {
   logo: "imagens/logo_1_cropped.svg",
   logoOutline: "imagens/logo_1_outline_cropped.svg",
   banner: "imagens/animais/Banner_1.png",
-  lostPreview: "imagens/animais/perfil_3.png",
-  foundPreview: "imagens/animais/perfil_2.png"
+  photoPlaceholder: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 92'%3E%3Crect width='92' height='92' rx='8' fill='%23e9f6fd'/%3E%3Cpath d='M31 32h7l4-6h8l4 6h7a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H31a8 8 0 0 1-8-8V40a8 8 0 0 1 8-8Z' fill='%230f69aa'/%3E%3Ccircle cx='46' cy='49' r='12' fill='%23ffffff'/%3E%3Ccircle cx='46' cy='49' r='7' fill='%230f69aa'/%3E%3Ccircle cx='60' cy='40' r='3' fill='%23ffffff'/%3E%3C/svg%3E"
 };
 
 const lostFriends = [
@@ -105,15 +104,17 @@ function bottomNav(active = "home") {
   `;
 }
 
-function uploadBlock(image, label) {
+function uploadBlock(image, label, inputId) {
   return `
     <div class="photo-row">
-      <label class="upload-card">
-        <input class="photo-input" type="file" accept="image/*" aria-label="${label}">
+      <label class="upload-card" for="${inputId}">
         <img src="${ASSETS.logoOutline}" alt="" aria-hidden="true">
         <span>${label}</span>
       </label>
-      <img class="form-preview" src="${image}" alt="Prévia do amiguinho">
+      <label class="photo-picker" for="${inputId}">
+        <input id="${inputId}" class="photo-input" type="file" accept="image/*" aria-label="${label}">
+        <img class="form-preview" src="${image}" alt="Prévia do amiguinho">
+      </label>
     </div>
   `;
 }
@@ -134,7 +135,7 @@ function lostFormScreen() {
     <section class="screen form-screen">
       ${appHeader("Perdi meu amiguinho")}
       <main class="form-content">
-        ${uploadBlock(ASSETS.lostPreview, "Adicione uma foto do amiguinho")}
+        ${uploadBlock(ASSETS.photoPlaceholder, "Adicione uma foto do amiguinho", "lost-photo-input")}
         <form class="pet-form">
           <label class="form-field"><span>Nome</span><input type="text" placeholder="Ex.: Bob, Mel, Luna..."></label>
           <label class="form-field"><span>Espécie e/ou raça</span><input type="text" placeholder="Ex.: Sem raça definida, siamês, vira-lata..."></label>
@@ -153,7 +154,7 @@ function foundFormScreen() {
     <section class="screen form-screen">
       ${appHeader("Achei um amiguinho")}
       <main class="form-content">
-        ${uploadBlock(ASSETS.foundPreview, "Adicione uma foto do amiguinho")}
+        ${uploadBlock(ASSETS.photoPlaceholder, "Adicione uma foto do amiguinho", "found-photo-input")}
         <form class="pet-form">
           <label class="form-field"><span>Descrição</span><textarea placeholder="Cor, porte, coleira, características..."></textarea></label>
           <label class="form-field"><span>Local</span><input type="text" placeholder="Rua, bairro, ponto de referência"></label>

@@ -843,6 +843,7 @@ button { font: inherit; cursor: pointer; }
   border-radius: 8px;
   background: var(--white);
   color: var(--blue-dark);
+  cursor: pointer;
   text-align: center;
   font-size: 12px;
   font-weight: 850;
@@ -858,6 +859,14 @@ button { font: inherit; cursor: pointer; }
 
 .photo-input {
   display: none;
+}
+
+.photo-picker {
+  width: 92px;
+  height: 92px;
+  display: block;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .form-preview {
@@ -1046,6 +1055,7 @@ button { font: inherit; cursor: pointer; }
   .form-content { padding: 10px 14px 14px; }
   .photo-row { grid-template-columns: 1fr 82px; gap: 10px; margin-bottom: 8px; }
   .upload-card { min-height: 82px; }
+  .photo-picker { width: 82px; height: 82px; }
   .form-preview { width: 82px; height: 82px; }
   .pet-form { gap: 7px; }
   .form-field input,
