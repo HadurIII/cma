@@ -66,7 +66,7 @@ function menuScreen() {
 
       <div class="hero-dog">
         <img class="hero-banner" src="${ASSETS.banner}" alt="Animal feliz em destaque">
-        <h1 class="hero-title">Todo animal tem um lar ❤</h1>
+        <h1 class="hero-title">Todo animal tem<br>um lar ❤</h1>
       </div>
 
       <div class="menu-grid" aria-label="Opções principais">
