@@ -137,7 +137,7 @@ function lostFormScreen() {
         ${uploadBlock(ASSETS.lostPreview, "Adicione uma foto do amiguinho")}
         <form class="pet-form">
           <label class="form-field"><span>Nome</span><input type="text" placeholder="Ex.: Bob, Mel, Luna..."></label>
-          <label class="form-field"><span>Raça</span><input type="text" placeholder="Ex.: Sem raça definida, siamês, vira-lata..."></label>
+          <label class="form-field"><span>Espécie e/ou raça</span><input type="text" placeholder="Ex.: Sem raça definida, siamês, vira-lata..."></label>
           <label class="form-field"><span>Última vez vista</span><input type="text" placeholder="Rua, bairro ou referência"></label>
           <label class="form-field"><span>Descrição</span><textarea placeholder="Conte mais sobre cor, porte, coleira, etc."></textarea></label>
           ${contactFields()}
