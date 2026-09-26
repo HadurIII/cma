@@ -23,7 +23,7 @@ function splashScreen() {
       <div class="splash-center">
         <img class="splash-logo" src="${ASSETS.logo}" alt="Cadê Meu Amiguinho">
         <h1>Cadê Meu Amiguinho</h1>
-        <p>Ajude a encontrar cachorrinhos perdidos e conecte quem encontrou com seus tutores.</p>
+        <p>Ajude a encontrar animais perdidos e conecte quem encontrou com seus tutores.</p>
       </div>
       <div class="splash-actions">
         <button class="primary-button" type="button" data-route="menu">Cadastrar</button>
@@ -65,8 +65,8 @@ function menuScreen() {
       </header>
 
       <div class="hero-dog">
-        <img class="hero-banner" src="${ASSETS.banner}" alt="Cachorro feliz em destaque">
-        <h1 class="hero-title">Todo cachorro tem um lar ❤</h1>
+        <img class="hero-banner" src="${ASSETS.banner}" alt="Animal feliz em destaque">
+        <h1 class="hero-title">Todo animal tem um lar ❤</h1>
       </div>
 
       <div class="menu-grid" aria-label="Opções principais">
@@ -77,7 +77,7 @@ function menuScreen() {
         </button>
         <button class="menu-card" type="button" data-route="found-form">
           <span class="menu-card-icon">♥</span>
-          <h2>Achei um cachorrinho</h2>
+          <h2>Achei um animal</h2>
           <p>Informe e ajude a encontrar o tutor</p>
         </button>
         <button class="menu-card" type="button" data-route="lost-list">
@@ -136,7 +136,7 @@ function lostFormScreen() {
         ${uploadBlock(ASSETS.lostPreview, "Adicione uma foto do amiguinho")}
         <form class="pet-form">
           <label class="form-field"><span>Nome</span><input type="text" placeholder="Ex.: Bob, Mel, Luna..."></label>
-          <label class="form-field"><span>Raça</span><select><option>Selecione</option><option>Sem raça definida</option><option>Vira-lata</option><option>Poodle</option><option>Shih-tzu</option></select></label>
+          <label class="form-field"><span>Raça</span><input type="text" placeholder="Ex.: Sem raça definida, siamês, vira-lata..."></label>
           <label class="form-field"><span>Última vez vista</span><input type="text" placeholder="Rua, bairro ou referência"></label>
           <label class="form-field"><span>Descrição</span><textarea placeholder="Conte mais sobre cor, porte, coleira, etc."></textarea></label>
           ${contactFields()}
