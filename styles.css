@@ -856,6 +856,10 @@ button { font: inherit; cursor: pointer; }
   object-fit: contain;
 }
 
+.photo-input {
+  display: none;
+}
+
 .form-preview {
   width: 92px;
   height: 92px;

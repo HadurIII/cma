@@ -108,10 +108,11 @@ function bottomNav(active = "home") {
 function uploadBlock(image, label) {
   return `
     <div class="photo-row">
-      <button class="upload-card" type="button">
+      <label class="upload-card">
+        <input class="photo-input" type="file" accept="image/*" aria-label="${label}">
         <img src="${ASSETS.logoOutline}" alt="" aria-hidden="true">
         <span>${label}</span>
-      </button>
+      </label>
       <img class="form-preview" src="${image}" alt="Prévia do amiguinho">
     </div>
   `;
@@ -318,6 +319,26 @@ function navigate(route) {
   if (route === "pet-detail") return petDetailScreen();
   splashScreen();
 }
+
+function updatePhotoPreview(input) {
+  const file = input.files && input.files[0];
+  if (!file || !file.type.startsWith("image/")) return;
+
+  const photoRow = input.closest(".photo-row");
+  const preview = photoRow && photoRow.querySelector(".form-preview");
+  if (!preview) return;
+
+  if (preview.dataset.objectUrl) URL.revokeObjectURL(preview.dataset.objectUrl);
+  const objectUrl = URL.createObjectURL(file);
+  preview.src = objectUrl;
+  preview.alt = `Prévia da foto selecionada: ${file.name}`;
+  preview.dataset.objectUrl = objectUrl;
+}
+
+document.addEventListener("change", (event) => {
+  const input = event.target.closest(".photo-input");
+  if (input) updatePhotoPreview(input);
+});
 
 document.addEventListener("click", (event) => {
   const petButton = event.target.closest("[data-pet]");
