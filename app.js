@@ -300,8 +300,53 @@ function petDetailScreen() {
           <p class="last-seen">Visto pela última vez em ${pet.lastSeenAt}<br>${pet.place}</p>
           <dl class="pet-facts"><div><dt>Recompensa</dt><dd>${pet.reward}</dd></div><div><dt>Porte</dt><dd>${pet.size}</dd></div><div><dt>Cor</dt><dd>${pet.color}</dd></div><div><dt>Sexo</dt><dd>${pet.sex}</dd></div></dl>
           <p class="pet-description">${pet.description}</p>
-          <button class="contact-button" type="button"><span aria-hidden="true">☏</span>Entrar em contato</button>
+          <button class="contact-button" type="button" data-route="pet-contact"><span aria-hidden="true">☏</span>Entrar em contato</button>
           <button class="favorite-button" type="button"><span aria-hidden="true">♡</span>Adicionar aos favoritos</button>
+        </section>
+      </main>
+    </section>
+  `;
+}
+
+function petContactScreen() {
+  const pet = selectedPet;
+  app.innerHTML = `
+    <section class="screen owner-contact-screen">
+      ${appHeader("Contato do tutor", "", "pet-detail")}
+      <main class="owner-contact-content">
+        <section class="owner-pet-summary">
+          <img src="${pet.photo}" alt="Foto de ${pet.name}">
+          <div>
+            <span class="owner-kicker">Você está falando sobre</span>
+            <h1>${pet.name}</h1>
+            <em class="status-pill ${statusClass(pet.status)}">${pet.status}</em>
+          </div>
+        </section>
+
+        <section class="owner-profile-card">
+          <div class="owner-avatar" aria-hidden="true">D</div>
+          <div>
+            <h2>Denise Martins</h2>
+            <p>Tutora responsável pelo alerta de ${pet.name}.</p>
+            <span>Prefere contato por WhatsApp</span>
+          </div>
+        </section>
+
+        <section class="owner-actions" aria-label="Ações de contato">
+          <button class="contact-button" type="button"><span aria-hidden="true">☏</span>Enviar WhatsApp</button>
+          <button class="outline-action" type="button"><span aria-hidden="true">☏</span>Ligar agora</button>
+          <button class="outline-action" type="button"><span aria-hidden="true">@</span>Enviar e-mail</button>
+        </section>
+
+        <section class="owner-info-list" aria-label="Dados de contato">
+          <div><span>Telefone</span><strong>(86) 9 9999-9999</strong></div>
+          <div><span>Email</span><strong>denise@email.com</strong></div>
+          <div><span>Referência</span><strong>${pet.place}</strong></div>
+        </section>
+
+        <section class="safety-note">
+          <strong>Combine com segurança</strong>
+          <p>Confirme características do amiguinho e prefira locais públicos para combinar a devolução.</p>
         </section>
       </main>
     </section>
@@ -318,6 +363,7 @@ function navigate(route) {
   if (route === "profile") return profileScreen();
   if (route === "favorites") return favoritesScreen();
   if (route === "pet-detail") return petDetailScreen();
+  if (route === "pet-contact") return petContactScreen();
   splashScreen();
 }
 
